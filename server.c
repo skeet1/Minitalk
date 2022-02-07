@@ -6,37 +6,44 @@
 /*   By: mkarim <mkarim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 16:02:27 by mkarim            #+#    #+#             */
-/*   Updated: 2022/02/07 11:16:32 by mkarim           ###   ########.fr       */
+/*   Updated: 2022/02/07 15:14:47 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 #include <stdio.h>
 
-void    handler(int s)
+void    handler(int sig, siginfo_t *info, void *p)
 {
-    int     i;
-    int     nb;
+    static int     i;
+    static int     res;
 
-    i = 0;
-    nb = 0;
-    while (i++ < 8)
+    
+    if (sig == SIGUSR1)
     {
-        if (SIGUSR1)
-            nb += 0;
-        else
-            nb += 1;
-        nb *= 10;
+        res = res * 2;
+        res += 1;
+        i++;
     }
-    ft_putchar(nb);
-    //printf("Hello");
+    else if (sig == SIGUSR2)
+    {
+         res = res * 2;       
+        res += 0;
+        i++;
+    }
+    if (i == 8)
+    {
+        ft_putchar(res);
+        i = 0;
+        res = 0;
+    }
 }
 
 int main(int argc, char **argv)
 {
     pid_t   pid;
     struct sigaction s;
-    s.sa_handler = &handler;
+    s.__sigaction_u.__sa_sigaction = &handler;
 
     if (argc == 1)
     {
