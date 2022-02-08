@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkarim <mkarim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 16:02:27 by mkarim            #+#    #+#             */
-/*   Updated: 2022/02/08 12:57:49 by mkarim           ###   ########.fr       */
+/*   Updated: 2022/02/08 14:01:59 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,20 @@ void    handler(int sig, siginfo_t *info, void *p)
     res *= 2;
     if (sig == SIGUSR1)
         res += 1;
-
     else if (sig == SIGUSR2)     
         res += 0;
     i++;
+
     if (i == 8)
     {
         if (res == 0)
             kill(info->si_pid, SIGUSR1);
+        else
+        {
         ft_putchar(res);
         i = 0;
         res = 0;
+        }
     }
 }
 
@@ -60,6 +63,6 @@ int main(int argc, char **argv)
         sigaction(SIGUSR1, &s, NULL);
         sigaction(SIGUSR2, &s, NULL);
         while (1)
-            sleep(1);
+            pause();
     }
 }

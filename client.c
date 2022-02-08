@@ -6,7 +6,7 @@
 /*   By: mkarim <mkarim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 14:59:50 by mkarim            #+#    #+#             */
-/*   Updated: 2022/02/08 13:01:24 by mkarim           ###   ########.fr       */
+/*   Updated: 2022/02/08 14:11:16 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void    ft_send(int pid, char c)
         else
             kill(pid, SIGUSR2);
         i--;
-        usleep(500);
+        usleep(800);
     }
 }
 

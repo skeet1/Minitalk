@@ -6,7 +6,7 @@
 /*   By: mkarim <mkarim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:03:08 by mkarim            #+#    #+#             */
-/*   Updated: 2022/01/17 17:29:57 by mkarim           ###   ########.fr       */
+/*   Updated: 2022/02/08 14:20:56 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define MINITALK_H
 
 # include <signal.h>
+# include <stdlib.h>
 # include <unistd.h>
 
 void    ft_putstr(char *s);
