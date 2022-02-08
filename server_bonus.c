@@ -6,7 +6,7 @@
 /*   By: mkarim <mkarim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 16:02:27 by mkarim            #+#    #+#             */
-/*   Updated: 2022/02/08 13:00:45 by mkarim           ###   ########.fr       */
+/*   Updated: 2022/02/08 12:57:49 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ void    handler(int sig, siginfo_t *info, void *p)
     i++;
     if (i == 8)
     {
+        if (res == 0)
+            kill(info->si_pid, SIGUSR1);
         ft_putchar(res);
         i = 0;
         res = 0;
