@@ -6,24 +6,24 @@
 /*   By: mkarim <mkarim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 15:16:40 by mkarim            #+#    #+#             */
-/*   Updated: 2022/02/07 13:39:31 by mkarim           ###   ########.fr       */
+/*   Updated: 2022/02/08 17:44:30 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void    ft_putchar(char c)
+void	ft_putchar(char c)
 {
-    write(1, &c, 1);
+	write(1, &c, 1);
 }
 
-void    ft_putstr(char *s)
+void	ft_putstr(char *s)
 {
-    int     i;
+	int		i;
 
-    i = -1;
-    while (s[++i])
-        ft_putchar(s[i]);
+	i = -1;
+	while (s[++i])
+		ft_putchar(s[i]);
 }
 
 void	ft_putnbr(int n)
