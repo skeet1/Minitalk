@@ -6,7 +6,7 @@
 /*   By: mkarim <mkarim@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 14:59:50 by mkarim            #+#    #+#             */
-/*   Updated: 2022/02/08 17:51:58 by mkarim           ###   ########.fr       */
+/*   Updated: 2022/02/09 11:14:31 by mkarim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(int argc, char **argv)
 			ft_send(pid, argv[2][i]);
 			i++;
 		}
-		ft_send(pid, '\0');
+		ft_send(pid, argv[2][i]);
 	}
 	else
 		ft_putstr("Bghina 3 arguments assat\n");
